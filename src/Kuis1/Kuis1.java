@@ -5,6 +5,8 @@
  */
 package Kuis1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -105,17 +107,17 @@ public class Kuis1 extends javax.swing.JFrame {
        String mapel = Matpel.getText();
        double nilai = Double.parseDouble(Nilai.getText());
        String nilaiakhir;
-       if(nilai<=75)
+       if(nilai>100)
+           nilaiakhir = "Masukkan Ulang Nilai";
+       else if(nilai<75)
            nilaiakhir = "Tidak Lulus";
        else if(nilai>75)
            nilaiakhir = "Lulus";
        else
-           nilaiakhir = "Belum di isi";
-       
+           nilaiakhir = "Masukkan Ulang";
        Hasil.setText("=================== PENILAIAN SISWA ===================\n"+"\nNama\t: "+nama+"\nAbsen\t: "+absen+"\nMata Pelajaran\t: "+mapel+
                "\nNilai\t: "+nilai+"\nKeterangan\t: "+nilaiakhir);
-           
-       
+         
     }//GEN-LAST:event_OKActionPerformed
 
     /**
