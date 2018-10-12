@@ -5,6 +5,8 @@
  */
 package Kuis2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -161,6 +163,7 @@ public class Kuis2 extends javax.swing.JFrame {
     }//GEN-LAST:event_keluarActionPerformed
 
     private void prosesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prosesActionPerformed
+        try{
         int harga1 = Integer.parseInt(h1.getText());
         int harga2 = Integer.parseInt(h2.getText());
         int harga3 = Integer.parseInt(h3.getText());
@@ -173,9 +176,22 @@ public class Kuis2 extends javax.swing.JFrame {
         total = harga1+harga2+harga3+harga4;
         proses = total*(diskon/100);
         hargabayar = total-proses;
-        
         hasil.setText("==================== KASIR =======================\n"+"Harga barang 1\t\t: "+harga1+"\nHarga barang 2\t\t: "+harga2+"\nHarga barang 3\t\t: "+harga3+"\nHarga barang 4\t\t: "+harga4+
-                "\nDiskon\t\t: "+diskon+"%"+"\nTotal Harga\t\t: Rp"+total+"\nTotal Bayar\t\t: Rp"+hargabayar);
+                "\nDiskon\t\t: "+diskon+" %"+"\nTotal Harga\t\t: Rp"+total+" ,-"+"\nTotal Bayar\t\t: Rp"+hargabayar+" ,-");
+        }catch(Exception e){
+        if (h1.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Harga 1");
+        } else if (h2.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Harga 2");
+        } else if (h3.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Harga 3");
+        } else if (h4.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Harga 4");
+        }else if (Diskon.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Diskon");
+        }
+        }
+        
     }//GEN-LAST:event_prosesActionPerformed
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed

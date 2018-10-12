@@ -33,15 +33,15 @@ public class Kuis1 extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        Nilai = new javax.swing.JTextField();
         Nama = new javax.swing.JTextField();
-        Absen = new javax.swing.JTextField();
         Matpel = new javax.swing.JTextField();
         OK = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Hasil = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        Absen1 = new javax.swing.JTextField();
+        Nilai = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -61,12 +61,8 @@ public class Kuis1 extends javax.swing.JFrame {
         jLabel9.setText("Nama");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(70, 90, 50, 30);
-        getContentPane().add(Nilai);
-        Nilai.setBounds(170, 210, 80, 30);
         getContentPane().add(Nama);
         Nama.setBounds(170, 90, 200, 30);
-        getContentPane().add(Absen);
-        Absen.setBounds(170, 130, 70, 30);
         getContentPane().add(Matpel);
         Matpel.setBounds(170, 170, 200, 30);
 
@@ -94,6 +90,10 @@ public class Kuis1 extends javax.swing.JFrame {
         jLabel1.setText("PENILAIAN SISWA");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(150, 20, 200, 50);
+        jPanel1.add(Absen1);
+        Absen1.setBounds(170, 130, 70, 30);
+        jPanel1.add(Nilai);
+        Nilai.setBounds(170, 210, 70, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 490, 600);
@@ -103,18 +103,30 @@ public class Kuis1 extends javax.swing.JFrame {
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
        String nama = Nama.getText();
-       String absen = Absen.getText();
+       String absen = Nilai.getText();
        String mapel = Matpel.getText();
-       double nilai = Double.parseDouble(Nilai.getText());
+       String nilai = Nilai.getText();
        String nilaiakhir;
-       if(nilai>100)
+         if (Nama.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Nama");
+         }else if (Absen1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Harap inputkan Abesn");  
+        } else if (Matpel.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Mata Pelajaran");
+        } else if (Nilai.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Nilai");
+
+        }   
+         double hitung = Double.parseDouble(Nilai.getText());
+
+       if(hitung>100)
            nilaiakhir = "Masukkan Ulang Nilai";
-       else if(nilai<75)
+       else if(hitung<75)
            nilaiakhir = "Tidak Lulus";
-       else if(nilai>75)
+       else if(hitung>=75)
            nilaiakhir = "Lulus";
-       else
-           nilaiakhir = "Masukkan Ulang";
+       else 
+           nilaiakhir = "Masukan Ulang";
        Hasil.setText("=================== PENILAIAN SISWA ===================\n"+"\nNama\t: "+nama+"\nAbsen\t: "+absen+"\nMata Pelajaran\t: "+mapel+
                "\nNilai\t: "+nilai+"\nKeterangan\t: "+nilaiakhir);
          
@@ -156,7 +168,7 @@ public class Kuis1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Absen;
+    private javax.swing.JTextField Absen1;
     private javax.swing.JTextArea Hasil;
     private javax.swing.JTextField Matpel;
     private javax.swing.JTextField Nama;

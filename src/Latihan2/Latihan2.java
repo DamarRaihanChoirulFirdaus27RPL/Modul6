@@ -5,6 +5,8 @@
  */
 package Latihan2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -120,7 +122,7 @@ public class Latihan2 extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(60, 270, 390, 220);
 
-        setBounds(0, 0, 491, 553);
+        setBounds(0, 0, 520, 553);
     }// </editor-fold>//GEN-END:initComponents
 
     private void KelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KelasActionPerformed
@@ -140,13 +142,20 @@ public class Latihan2 extends javax.swing.JFrame {
     }//GEN-LAST:event_AbsenActionPerformed
 
     private void OkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkeActionPerformed
-       String nama = Nama.getText();
-       String absen = Absen.getText();
-       String kelas = Kelas.getText();
-       String alamat = Alamat.getText();
-       
-       Hasil.setText("=======================BIODATA======================"+
-               "\nNama Siswa\t: "+nama+"\nAbsen\t: "+absen+"\nKelas\t: "+kelas+"\nAlamat\t: "+alamat);
+        String nama = Nama.getText();
+        String absen = Absen.getText();
+        String kelas = Kelas.getText();
+        String alamat = Alamat.getText();
+
+        if (Nama.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Nama");
+        } else if (Absen.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Absen");
+        } else if (Kelas.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Kelas");
+        } 
+        Hasil.setText("=======================BIODATA======================"
+                + "\nNama Siswa\t: " + nama + "\nAbsen\t: " + absen + "\nKelas\t: " + kelas + "\nAlamat\t: " + alamat);
     }//GEN-LAST:event_OkeActionPerformed
 
     /**

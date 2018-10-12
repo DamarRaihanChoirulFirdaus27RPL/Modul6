@@ -1,5 +1,7 @@
 package Latihan1;
 
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -165,6 +167,14 @@ public class Latihan1 extends javax.swing.JFrame {
         Kelas1.setText(kelas);
         String alamat = Alamat.getText();
         Alamat1.setText(alamat);
+        
+        if (Nama.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Nama");
+        } else if (Kelas.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Absen");
+        } else if (Alamat.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Harap inputkan Kelas");
+        } 
     }//GEN-LAST:event_OKEActionPerformed
 
     /**
